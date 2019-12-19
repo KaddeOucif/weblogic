@@ -256,7 +256,7 @@ Now, choose *Certificates* from *Resources* sub menu:
 
 - Here, we'll add a Load Balancer certificate that it's required for our SSL listener; configure as following:
   - **Certificate Name**: *weblogiccloud-cert*
-  - **SSL Certificate File**: upload provided weblogiccloud_cert.pem file
+  - **SSL Certificate File**: upload provided [weblogiccloud_cert.pem](resources/weblogiccloud_cert.pem) file
   - Tick **Specify CA Certificate**:
 
 ![](images/wlscnonjrfwithenv/image330.png)
@@ -264,7 +264,7 @@ Now, choose *Certificates* from *Resources* sub menu:
 
 
 - As we use a demo self signed certificate, upload the same weblogiccloud_cert.pem file for *CA Certificate File*;
-- For **Private Key File**, upload the weblogiccloud_dec_key.pem file
+- For **Private Key File**, upload the [weblogiccloud_dec_key.pem](resources/weblogiccloud_dec_key.pem) file
 - Enter *Weblogic1#* for **Private Key Passphrase**
 - Click **Add Certificate**:
 
@@ -327,7 +327,7 @@ Now, choose *Certificates* from *Resources* sub menu:
 
 
 
-Follow **Upload your files** link and upload provided SampleWebApp.war web archive file:
+Follow **Upload your files** link and upload provided [SampleWebApp.war](resources/SampleWebApp.war) web archive file:
 
 ![](images/wlscnonjrfwithenv/image430.png)
 

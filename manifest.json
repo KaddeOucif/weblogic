@@ -1,7 +1,7 @@
 {
     "workshop": {
         "title": "Weblogic Cloud Workshop",
-        "description": "JWeblogic Cloud Workshop",
+        "description": "Weblogic Cloud Workshop",
         "theme": "default",
         "labs": [
 			{

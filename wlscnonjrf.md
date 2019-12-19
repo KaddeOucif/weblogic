@@ -300,7 +300,7 @@ Now, choose *Certificates* from *Resources* sub menu:
 
 
 
-- We can check now if the out of the box deployed application is loading; From the Stack Job Outputs, open the Sample Application URL; now it's loading, but we have to bypass the browser working as we're using a Self Signed Certificate;
+- We can check now if the out of the box deployed application is loading; From the Stack Job Outputs, open the Sample Application URL; now it's loading, but we have to bypass the browser warning as we're using a Self Signed Certificate;
 - Click **Advanced**, **Proceed to ...** to continue:
 
 

@@ -210,7 +210,7 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
 ### Step 2. Configure SSL Load Balancer
 
-- We need to do some additional configurations to the created Load Balancer in order to support SSL traffic; From the main menu, go to *Core Infrastrucure* -> *Networking* -> *Load Balancers*:
+- We need to do some additional configurations to the created Load Balancer in order to support SSL traffic; From the main menu, go to *Core Infrastructure* -> *Networking* -> *Load Balancers*:
 
 ![](images/wlscnonjrfwithenv/image260.png)
 
@@ -285,7 +285,7 @@ Now, choose *Certificates* from *Resources* sub menu:
 
 
 - Configure as following and Save Changes:
-  - **Name**: choose existing *wlschostname* hostneme
+  - **Name**: choose existing *wlschostname* hostname
   - Tick **USE SSL** checkbox
   - **Certificate Name**: choose *weblogiccloud-cert*
   - leave default backend set

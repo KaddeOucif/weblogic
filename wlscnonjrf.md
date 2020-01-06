@@ -4,7 +4,7 @@
 
 
 
-This Hands on Lab will go through the process of creating a non JRF type of WebLogic Cloud Instance - using Oracle Cloud Marketplace - and the steps of deploying a simple application. A provided (lab) cloud environment will be used.
+This Hands on Lab will go through the process of creating a non JRF type of WebLogic Cloud Instance - using Oracle Cloud Marketplace - and through the steps of deploying a simple application. A provided and partially preconfigured (lab) cloud environment will be used.
 
 
 
@@ -29,7 +29,7 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
 
 
-- After logging in, go to Hamburger Menu, *Solutions and Platform* -> *Marketplace*
+- After logging in, go to Hamburger Menu, *Solutions and Platform* -> *Marketplace*:
 
 ![](images/wlscnonjrfwithenv/image040.png)
 
@@ -56,14 +56,14 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
 
 
-- And accept the terms for launching the Stack:
+- And accept the terms for Launching the Stack:
 
 ![](images/wlscnonjrfwithenv/image080.png)
 
 
 
 - Fill in Stack information:
-  - **Name**: *WLSCNN* - where NN is your unique suffix given by the instructor
+  - **Name**: *WLSCNN* - where **NN** is your unique suffix given by the instructor
   - **Description**: Any meaningful description, maybe type in your name/initials
 - Click **Next**
 
@@ -75,9 +75,8 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
   - **Resource Name Prefix**: *WLSCNN* - where **NN** your unique suffix
   - **WebLogic Server Shape**: *VM.Standard2.1*
-  - **SSH Public Key**: fill in pre-generated key:
+  - **SSH Public Key**: copy and paste the content from the provided **wls_ssh_public.key** file; it contains the public key in RSA format; be sure to include the whole content in one line, including *ssh-rsa* part at the beginning
 
-  > ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAjB69WYDCNddsCkPf0qxQAQAjRDYRTZtkCB676RseTeNU17hb4QzZkRlE6vBggN+23bn2IzcshZw3Hj0RSZZiluYAUGXHV1s2o2n4WiGfhEjj1yE7xNEIzrT3RjB1Pk8cBzXwN35aqrnEF+0UmHAWMdOl64W/BAvn14dgHNKQFCoTkanY28znazq8Y65XchoHIJG
 
 ![](images/wlscnonjrfwithenv/image100.png)
 
@@ -86,17 +85,16 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 - Continue setting up:
 
   - **WebLogic Server Availability Domain**: choose one of the three ADs
-  - **WebLogic Server Node count**: *2* (we will create a WebLogic cluster with two node)
+  - **WebLogic Server Node count**: *2* (we will create a WebLogic cluster with two nodes / managed servers)
   - **Admin user name**: *weblogic*
-  - **Admin password**: here we have pre-encrypted the *Weblogic1#* password using a Virtual Vault key; you can copy & paste the pre-encrypted password:
+  - **Admin password**: enter the provided *encrypted* weblogic password;  see provided *weblogic_password_encrypted.txt* file; for getting this, a Virtual Vault key was used for encrypting the plain text password;
 
-  > IdDFz1qKLvhTAAP0OHpg3uGl1wpknYGNmQ0cmsJbVfVgPXzoyaqCKvm5nOAebXnpAAAAAA==
 
 ![](images/wlscnonjrfwithenv/image110.png)
 
 
 
-- Don't change WebLogic Server Advanced configuration, choose the same *CTDOKE* Compartment and *Use existing VCN* for Virtual Cloud Network Strategy: 
+- Don't change WebLogic Server Advanced Configuration, choose the same *CTDOKE* Compartment and *Use existing VCN* for **Virtual Cloud Network Strategy**: 
 
 ![](images/wlscnonjrfwithenv/image120.png)
 
@@ -114,8 +112,8 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
 
 
-- End network configuration with:
-  - E**xisting Subnet for WebLogic Server**: *WLSCB2-wls-subnet*
+- Finalize network configuration with:
+  - **Existing Subnet for WebLogic Server**: *WLSCB2-wls-subnet*
   - Tick to **Provision Load Balancer**
   - **Existing Subnet For Load Balancer**: *WLSCB2-lb-subnet-1*
   - **Load Balancer Shape**: *400Mbps*
@@ -133,9 +131,9 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
 
 
-- Lastly, configure Key Management Service; previously we have provided a pre-encrypted admin password for WebLogic admin user; for the Stack scripts being able to decrypt it on the fly (without storing anywhere the password in plain text), it needs the Vault Key Id used for encryption and the Key Management Service Cryptographic Endpoint:
+- Finally, configure Key Management Service; previously we have provided a pre-encrypted password for WebLogic admin user; for the Stack scripts being able to decrypt it on the fly (without storing anywhere the password in plain text mode), they needs the Vault Key Id used for encryption and the Key Management Service Cryptographic Endpoint:
 
-  - **Key Management Service Key Id**: use existing:
+  - **Key Management Service Key Id**: use existing (copy & paste in one line):
 
   > ocid1.key.oc1.eu-frankfurt-1.bfoz5szoaafak.abtheljsw5qx4fxv3kzeqx6ih6obdtwi7434qbgeom5h3vzmyejtgakgswha
 
@@ -153,7 +151,7 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
 
 
-- A Stack Job is being created and our WLS Server is being provisioned:
+- A Stack Job is being run and our WLS Server is being provisioned:
 
 ![](images/wlscnonjrfwithenv/image180.png)
 
@@ -165,28 +163,29 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
 
 
-- After a while, the Job should end with success:
+- After a while, the Job should complete with success:
 
 ![](images/wlscnonjrfwithenv/image200.png)
 
 
 
-- We can check the *Outputs* section of Job Resources and we see two important value:
-  - Sample Application URL (we can can try it at this moment, but the out of the box sample application won't load as we need to finish the SSL configuration of the Load Balance)
+- We can check the *Outputs* section of Job Resources and check for two important values:
+  - Sample Application URL (we can can try it at this moment, but the out of the box sample application won't load as we need to finish the SSL configuration of the Load Balancer)
   - WebLogic Server Administration Console
 
 ![](images/wlscnonjrfwithenv/image210.png)
 
 
 
-- Let's check the WLS admin console of the newly created WebLogic Server; as we have have chosen a Public Subnet for the WLS network, both Compute instances create have associated public IPs
-- Instead of *http://< public ip >:7001/console*, open *https://< public ip >:7002/console*; we'll prevent sending the WebLogic admin user password plain text, insecurely:
+- Let's check the WLS admin console of the newly created WebLogic Server; as we have chosen a Public Subnet for the WLS network, both Compute instances that have been created have public IPs associated 
+- Instead of *http://< public IP >:7001/console*, open *https://< public IP >:7002/console*; we'll prevent sending the WebLogic admin credentials in plain text mode, insecurely; (change *http* with **https** and *7001* port with **7002** port)
+- Login with **weblogic** username and the plain text provided password; check the *weblogic_password_plaintext.txt* file
 
 ![](images/wlscnonjrfwithenv/image220.png)
 
 
 
-- Login with **weblogic**/**Weblogic1#**; we can see that our domain has one admin server and two managed servers:
+- We can see that our domain has one admin server and two managed servers:
 
 ![](images/wlscnonjrfwithenv/image230.png)
 
@@ -198,7 +197,7 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
 
 
-- We can see two instances having our prefix mentioned during Stack configuration; one of them has the admin server and a managed server running and the other the second managed server:
+- We can see two instances having our prefix mentioned during Stack configuration; one of them runs the admin server and a managed server and the other runs the second managed server:
 
 ![](images/wlscnonjrfwithenv/image250.png)
 
@@ -216,7 +215,7 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
 
 
-- Identify the Load Balancer that has your unique *NN* prefix:
+- Identify the Load Balancer that has your unique WLSC*NN* prefix:
 
 ![](images/wlscnonjrfwithenv/image270.png)
 
@@ -228,7 +227,7 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
 
 
-- Let's create a new hostname:
+- Let's create a new hostname; Click **Create Hostname**: 
 
 ![](images/wlscnonjrfwithenv/image290.png)
 
@@ -256,16 +255,16 @@ Now, choose *Certificates* from *Resources* sub menu:
 
 - Here, we'll add a Load Balancer certificate that it's required for our SSL listener; configure as following:
   - **Certificate Name**: *weblogiccloud-cert*
-  - **SSL Certificate File**: upload provided [weblogiccloud_cert.pem](resources/weblogiccloud_cert.pem) file
+  - **SSL Certificate File**: upload provided *weblogiccloud_cert.pem* file (don't confuse with the *_key.pem* file that contains the private key)
   - Tick **Specify CA Certificate**:
 
 ![](images/wlscnonjrfwithenv/image330.png)
 
 
 
-- As we use a demo self signed certificate, upload the same weblogiccloud_cert.pem file for *CA Certificate File*;
-- For **Private Key File**, upload the [weblogiccloud_dec_key.pem](resources/weblogiccloud_dec_key.pem) file
-- Enter *Weblogic1#* for **Private Key Passphrase**
+- As we use a demo self signed certificate, upload the same *weblogiccloud_cert.pem* file for **CA Certificate File**;
+- For **Private Key File**, upload the *weblogiccloud_dec_key.pem* file (this file contains the decrypted private key)
+- Enter the provided key passphrase for **Private Key Passphrase**; check *weblogiccloud_key_passphrase.txt* file content
 - Click **Add Certificate**:
 
 ![](images/wlscnonjrfwithenv/image340.png)
@@ -301,7 +300,7 @@ Now, choose *Certificates* from *Resources* sub menu:
 
 
 - We can check now if the out of the box deployed application is loading; From the Stack Job Outputs, open the Sample Application URL; now it's loading, but we have to bypass the browser warning as we're using a Self Signed Certificate;
-- Click **Advanced**, **Proceed to ...** to continue:
+- Click **Advanced** button and **Proceed to ...** to continue:
 
 
 
@@ -381,7 +380,7 @@ Follow **Upload your files** link and upload provided [SampleWebApp.war](resourc
 
 
 
-- Now, test this new application at *https://< public lb ip >/SampleWebApp/*
+- Now, test this new application at *https://< public load balancer IP >/SampleWebApp/*
 
  ![](images/wlscnonjrfwithenv/image520.png)
 

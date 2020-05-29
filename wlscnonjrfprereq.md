@@ -1,12 +1,12 @@
 # WebLogic for OCI - non JRF
 
-## prerequisites
+## Prerequisites for using own environment
 
 
 If you want go through the Hands on Lab (*non JRF type of WebLogic for OCI Instance - using Oracle Cloud Marketplace*) using your cloud environment, follow this guide to setup some prerequisites. If you will use the provided Cloud Test Drive environment, skip this Lab.
 
 
-### Step 1. Prepare OCI Compartment
+## Step 1. Prepare OCI Compartment
 
 When provisioning WebLogic for OCI through Marketplace, you need to specify an OCI Compartment where all resources will be created.
 
@@ -62,7 +62,7 @@ A policy that entitles your OCI user to have the minimum management access for y
 
 
 
-### Step 2. Create OCI Secret for WebLogic Admin password
+## Step 2. Create OCI Secret for WebLogic Admin password
 
 When you provision WebLogic for you need to pass the WebLogic Admin password. An OCI Secret is required for this.  
 
@@ -142,7 +142,7 @@ Click on the Secret name and take note of its **OCID**. We need to provide this 
 
 
 
-### Step 3. Network Configuration
+## Step 3. Network Configuration
 
 The Hands on Lab guide uses an existing Virtual Cloud Network and pre-configured Subnets for the WebLogic compute nodes and for the Load Balancer.
 
@@ -168,7 +168,7 @@ Also for the Load Balancer:
 
 
 
-###  Step 4. Create ssh keys
+##  Step 4. Create ssh keys
 
 You need to generate a public and private ssh key pair. During provisioning using Marketplace, you have to specify the ssh public key that will be associated with each of the WebLogic VM nodes.
 
@@ -200,7 +200,7 @@ The public key filename is referred as **wls_ssh_public.key** in the Hands on La
 
 
 
-### Step 5. Load balancer SSL configuration
+## Step 5. Load balancer SSL configuration
 
 For security reasons it's a good practice - if not mandatory - to allow only secured traffic between clients and WebLogic Server applications. Therefore, after provisioning WebLogic for OCI by choosing to setup a Load Balancer, it's necessary to manually finish SSL configuration by adding a SSL certificate to the load balancer's listener.
 

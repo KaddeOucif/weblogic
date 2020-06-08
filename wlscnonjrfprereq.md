@@ -26,7 +26,7 @@ The Compartment name is referred as **CTDOKE** in the Hands on Lab.
 
 
 
-### Required root level policies for WebLogic for OCI
+### 1.1 Required root level policies for WebLogic for OCI
 
 You must be an Oracle Cloud Infrastructure <u>administrator</u>, or <u>be granted some root-level permissions</u>, in order to create domains with Oracle WebLogic Server for Oracle Cloud Infrastructure.
 
@@ -39,13 +39,15 @@ When you create a domain, Oracle WebLogic Server for Oracle Cloud Infrastructure
 
 In case <u>you are not an OCI administrator</u> and you cannot create dynamic-groups or you cannot create policies at root compartment level, please contact your OCI administrator and request that one  of the groups your OCI user is part of to have the following grants in place:
 
-> Allow group MyGroup to manage dynamic-groups in tenancy
-> Allow group MyGroup to manage policies in tenancy
-> Allow group MyGroup to use tag-namespaces in tenancy
+```
+Allow group MyGroup to manage dynamic-groups in tenancy
+Allow group MyGroup to manage policies in tenancy
+Allow group MyGroup to use tag-namespaces in tenancy
+```
 
 
 
-### Required compartment level policies for WebLogic for OCI
+### 1.2 Required compartment level policies for WebLogic for OCI
 
 If <u>you are not an Oracle Cloud Infrastructure administrator</u>, you must be given management access to resources in the compartment in which you want to create a domain.
 
@@ -53,16 +55,18 @@ Your Oracle Cloud Infrastructure user must have management access for Marketplac
 
 A policy that entitles your OCI user to have the minimum management access for your compartment, needs to have the following grants in place:
 
-> Allow group MyGroup to manage instance-family in compartment MyCompartment
-> Allow group MyGroup to manage virtual-network-family in compartment MyCompartment
-> Allow group MyGroup to manage volume-family in compartment MyCompartment
-> Allow group MyGroup to manage load-balancers in compartment MyCompartment
-> Allow group MyGroup to manage orm-family in compartment MyCompartment
-> Allow group MyGroup to manage app-catalog-listing in compartment MyCompartment
-> Allow group MyGroup to manage vaults in compartment MyCompartment
-> Allow group MyGroup to manage keys in compartment MyCompartment
-> Allow group MyGroup to manage secret-family in compartment MyCompartment
-> Allow group MyGroup to read metrics in compartment MyCompartment
+```
+Allow group MyGroup to manage instance-family in compartment MyCompartment
+Allow group MyGroup to manage virtual-network-family in compartment MyCompartment
+Allow group MyGroup to manage volume-family in compartment MyCompartment
+Allow group MyGroup to manage load-balancers in compartment MyCompartment
+Allow group MyGroup to manage orm-family in compartment MyCompartment
+Allow group MyGroup to manage app-catalog-listing in compartment MyCompartment
+Allow group MyGroup to manage vaults in compartment MyCompartment
+Allow group MyGroup to manage keys in compartment MyCompartment
+Allow group MyGroup to manage secret-family in compartment MyCompartment
+Allow group MyGroup to read metrics in compartment MyCompartment
+```
 
 
 
@@ -72,7 +76,7 @@ When you provision WebLogic for you need to pass the WebLogic Admin password. An
 
 
 
-### Create a Security Vault
+### 2.1 Create a Security Vault
 
 Go to *Governance and Administration* > *Security* > *Key Management*:
 
@@ -98,7 +102,7 @@ Take a look at the Vault Information:
 
 
 
-### Create an Encryption Key
+### 2.2 Create an Encryption Key
 
 Go to *Master Encryption Keys* submenu of the Vault Information page and create an new Key:
 
@@ -118,7 +122,7 @@ The new key should be listed as *Enabled*:
 
 
 
-### Create an OCI Secret
+### 2.3 Create an OCI Secret
 
 Go to *Secrets* submenu of the Vault Information page and create an new Secret:
 
@@ -178,7 +182,7 @@ You need to generate a public and private ssh key pair. During provisioning usin
 
 You can choose one of the options below:
 
-### Using ssh-keygen
+### A) Using ssh-keygen
 
 > ssh-keygen -t rsa -b 4096
 
@@ -186,7 +190,7 @@ You'll be asked to specify the filename to save the private key. The public key 
 
 
 
-### Using PuTTYgen
+### B) Using PuTTYgen
 
 Launch the PuTTYgen tool and use the *Generate* button to generate a new private/public key pair.
 

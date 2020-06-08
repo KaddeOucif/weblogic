@@ -1,6 +1,6 @@
 # WebLogic for OCI - non JRF
 
-## Prerequisites for using own environment
+### Prerequisites for using own environment
 
 
 If you want go through the Hands on Lab (*non JRF type of WebLogic for OCI Instance - using Oracle Cloud Marketplace*) using your cloud environment, follow this guide to setup some prerequisites. If you will use the provided Cloud Test Drive environment, skip this Lab.
@@ -22,7 +22,7 @@ The Compartment name is referred as **CTDOKE** in the Hands on Lab.
 
 
 
-##### Required root level policies for WebLogic for OCI
+### Required root level policies for WebLogic for OCI
 
 You must be an Oracle Cloud Infrastructure <u>administrator</u>, or <u>be granted some root-level permissions</u>, in order to create domains with Oracle WebLogic Server for Oracle Cloud Infrastructure.
 
@@ -41,7 +41,7 @@ In case <u>you are not an OCI administrator</u> and you cannot create dynamic-gr
 
 
 
-##### Required compartment level policies for WebLogic for OCI
+### Required compartment level policies for WebLogic for OCI
 
 If <u>you are not an Oracle Cloud Infrastructure administrator</u>, you must be given management access to resources in the compartment in which you want to create a domain.
 
@@ -68,7 +68,7 @@ When you provision WebLogic for you need to pass the WebLogic Admin password. An
 
 
 
-##### Create a Security Vault
+### Create a Security Vault
 
 Go to *Governance and Administration* > *Security* > *Key Management*:
 
@@ -94,7 +94,7 @@ Take a look at the Vault Information:
 
 
 
-##### Create an Encryption Key
+### Create an Encryption Key
 
 Go to *Master Encryption Keys* submenu of the Vault Information page and create an new Key:
 
@@ -114,7 +114,7 @@ The new key should be listed as *Enabled*:
 
 
 
-##### Create an OCI Secret
+### Create an OCI Secret
 
 Go to *Secrets* submenu of the Vault Information page and create an new Secret:
 
@@ -174,7 +174,7 @@ You need to generate a public and private ssh key pair. During provisioning usin
 
 You can choose one of the options below:
 
-###### Using ssh-keygen
+### Using ssh-keygen
 
 > ssh-keygen -t rsa -b 4096
 
@@ -182,7 +182,7 @@ You'll be asked to specify the filename to save the private key. The public key 
 
 
 
-###### Using PuTTYgen
+### Using PuTTYgen
 
 Launch the PuTTYgen tool and use the *Generate* button to generate a new private/public key pair.
 
@@ -206,7 +206,7 @@ For security reasons it's a good practice - if not mandatory - to allow only sec
 
 
 
-##### Create Self Signed certificate
+### Create Self Signed certificate
 
 We can use Openssl tool to generate a Self Signed certificate:
 

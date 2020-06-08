@@ -1,6 +1,6 @@
 # WebLogic for OCI - non JRF
 
-## Steps for using Cloud Test Drive (CTD) environment
+### Steps for using Cloud Test Drive (CTD) environment
 
 
 

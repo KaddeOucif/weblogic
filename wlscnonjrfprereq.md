@@ -1,7 +1,6 @@
 # WebLogic for OCI - non JRF - prerequisites
 
 ### Prerequisites for using own environment
----
 
 
 

@@ -7,8 +7,8 @@
 
 ## Objective
 
-
 If you want go through the Hands on Lab (*non JRF type of WebLogic for OCI Instance - using Oracle Cloud Marketplace*) using your cloud environment, follow this guide to setup some prerequisites. If you will use the provided Cloud Test Drive environment, skip this Lab.
+
 
 
 ## Step 1. Prepare OCI Compartment

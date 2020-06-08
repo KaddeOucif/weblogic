@@ -1,5 +1,6 @@
 {
-    "tutorials": [
+    "title": "Weblogic for OCI Workshop !?",
+	"tutorials": [
         {            
             "title": "WebLogic for OCI as a VM - prerequisites",
             "filename": "./wlscnonjrfprereq.md"

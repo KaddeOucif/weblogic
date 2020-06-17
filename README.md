@@ -1,4 +1,4 @@
-# WebLogic Cloud
+# WebLogic for OCI
 
-WebLogic Cloud Hands on Labs
+WebLogic for OCI Hands on Labs
 

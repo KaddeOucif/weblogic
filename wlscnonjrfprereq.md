@@ -6,7 +6,7 @@
 
 ## Objective
 
-If you want go through the Hands on Lab (*non JRF type of WebLogic for OCI Instance - using Oracle Cloud Marketplace*) using your cloud environment, follow this guide to setup some prerequisites. If you will use the provided Cloud Test Drive environment, skip this Lab.
+If you want go through the Hands on Lab (*WebLogic for OCI Instance - non JRF using Oracle Cloud Marketplace*) using your cloud environment, follow this guide to setup some prerequisites. If you are going to use the Cloud Test Drive environment (CTD), skip this Lab.
 
 
 
@@ -170,7 +170,7 @@ You can leave default options for Subnet configuration:
 
 
 
-Also for the Load Balancer:
+Also for the Load Balancer (make sure to select **100Mbps** for the *Load Balancer Shape* as instructed in the lab):
 
 ![](images/wlscnonjrfwithenvprereq/image620.png)
 
@@ -184,9 +184,9 @@ You can choose one of the options below:
 
 ### A) Using ssh-keygen
 
-> ssh-keygen -t rsa -b 4096
+> ssh-keygen -t rsa -b 4096 -f weblogic_ssh_key
 
-You'll be asked to specify the filename to save the private key. The public key will be saved at the same location, with the extension .pub added to the private key filename.
+This will create the **weblogic_ssh_key** containing the private key. The public key will be saved at the same location, with the .pub extension added to the private key filename.
 
 
 
@@ -204,7 +204,7 @@ After key generation, don't forget to save the public and private key. If not us
 
 
 
-The public key filename is referred as **wls_ssh_public.key** in the Hands on Lab.
+The public key filename is referred as **weblogic_ssh_key.pub** in the Hands on Lab.
 
 
 
@@ -218,21 +218,21 @@ For security reasons it's a good practice - if not mandatory - to allow only sec
 
 We can use Openssl tool to generate a Self Signed certificate:
 
-> openssl req -x509 -newkey rsa:4096 -keyout weblogiccloud_key.pem -out weblogiccloud_cert.pem -days 365
+> openssl req -x509 -newkey rsa:4096 -keyout weblogic_cert_key.pem -out weblogic_cert.pem -days 365
 
-The openssl dialog will request setting up a PEM pass phrase and several fields for certificate information.
+The openssl dialog will request setting up a PEM pass phrase and several fields for certificate information. You may setup **weblogic** as the value for *Common Name (e.g. server FQDN or YOUR name)* field.
 
-You can choose any PEM pass phrase, the one used by the Hands on Lab is referred from the **weblogiccloud_key_passphrase.txt** text file.
+You can choose any PEM pass phrase, the one used by the Hands on Lab is referred from the **weblogic_cert_key_passphrase.txt** text file.
 
 
 
 Then, we need to decrypt the private key:
 
-> openssl rsa -in weblogiccloud_key.pem -out weblogiccloud_dec_key.pem
+> openssl rsa -in weblogic_cert_key.pem -out weblogic_cert_key_dec.pem
 
 
 
-Note that above examples use the same names for the certificate and private key as in the Hands on Lab: **weblogiccloud_cert.pem** and **weblogiccloud_dec_key.pem**.
+Note: that above examples generate the same file names for the certificate and private key as in the Hands on Lab: **weblogic_cert.pem** and **weblogic_cert_key_dec.pem**.
 
 
 

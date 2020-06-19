@@ -71,7 +71,7 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
   - **Resource Name Prefix**: *WLSCNN* - where **NN** your unique suffix
   - **WebLogic Server Shape**: *VM.Standard2.1*
-  - **SSH Public Key**: copy and paste the content from the provided **wls_ssh_public.key** file; it contains the public key in RSA format; be sure to include the whole content in one line, including *ssh-rsa* part at the beginning
+  - **SSH Public Key**: copy and paste the content from the provided **weblogic_ssh_key.pub** file; it contains the public key in RSA format; be sure to include the whole content in one line, including *ssh-rsa* part at the beginning
 
 
 ![](images/wlscnonjrfwithenv/image100.png)
@@ -154,7 +154,7 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
 
 
-- After a while, the Job should complete with success:
+- After approx. 15 minutes, the Job should complete with success:
 
 ![](images/wlscnonjrfwithenv/image200.png)
 
@@ -170,7 +170,7 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
 - Let's check the WLS admin console of the newly created WebLogic Server; as we have chosen a Public Subnet for the WLS network, both Compute instances that have been created have public IPs associated 
 - Instead of *http://< public IP >:7001/console*, open *https://< public IP >:7002/console*; we'll prevent sending the WebLogic admin credentials in plain text mode, insecurely; (change *http* with **https** and *7001* port with **7002** port)
-- Login with **weblogic** username and the plain text provided password; check the *weblogic_password_plaintext.txt* file
+- Login with **weblogic** username and the provided password; check the *weblogic_password.txt* file
 
 ![](images/wlscnonjrfwithenv/image220.png)
 
@@ -225,8 +225,8 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
 
 - Fill in:
-  - **Name**: *wlschostname*
-  - **Hostname**: *weblogiccloud*
+  - **Name**: *weblogic-hostname*
+  - **Hostname**: *weblogic*
 
 ![](images/wlscnonjrfwithenv/image300.png)
 
@@ -245,17 +245,17 @@ Now, choose *Certificates* from *Resources* sub menu:
 
 
 - Here, we'll add a Load Balancer certificate that it's required for our SSL listener; configure as following:
-  - **Certificate Name**: *weblogiccloud-cert*
-  - **SSL Certificate File**: upload provided *weblogiccloud_cert.pem* file (don't confuse with the *_key.pem* file that contains the private key)
+  - **Certificate Name**: *weblogic-cert*
+  - **SSL Certificate File**: upload provided *weblogic_cert.pem* file (don't confuse with the *_key.pem* file that contains the private key)
   - Tick **Specify CA Certificate**:
 
 ![](images/wlscnonjrfwithenv/image330.png)
 
 
 
-- As we use a demo self signed certificate, upload the same *weblogiccloud_cert.pem* file for **CA Certificate File**;
-- For **Private Key File**, upload the *weblogiccloud_dec_key.pem* file (this file contains the decrypted private key)
-- Enter the provided key passphrase for **Private Key Passphrase**; check *weblogiccloud_key_passphrase.txt* file content
+- As we use a demo self signed certificate, upload the same *weblogic_cert.pem* file for **CA Certificate File**;
+- For **Private Key File**, upload the *weblogic_cert_key_dec.pem* file (this file contains the decrypted private key)
+- Enter the provided key passphrase for **Private Key Passphrase**; check *weblogic_cert_key_passphrase.txt* file content
 - Click **Add Certificate**:
 
 ![](images/wlscnonjrfwithenv/image340.png)
@@ -275,9 +275,9 @@ Now, choose *Certificates* from *Resources* sub menu:
 
 
 - Configure as following and Save Changes:
-  - **Name**: choose existing *wlschostname* hostname
+  - **Name**: choose existing *weblogic-hostname* hostname
   - Tick **USE SSL** checkbox
-  - **Certificate Name**: choose *weblogiccloud-cert*
+  - **Certificate Name**: choose *weblogic-cert*
   - leave default backend set
 
 ![](images/wlscnonjrfwithenv/image370.png)

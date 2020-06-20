@@ -37,12 +37,19 @@ When you create a domain, Oracle WebLogic Server for Oracle Cloud Infrastructure
 
 
 
-In case <u>you are not an OCI administrator</u> and you cannot create dynamic-groups or you cannot create policies at root compartment level, please contact your OCI administrator and request that one  of the groups your OCI user is part of to have the following grants in place:
+In case <u>you are not an OCI administrator</u> and you cannot create dynamic-groups or you cannot create policies at root compartment level, please contact your OCI administrator and request that one  of the groups your cloud user is part of to have the following grants in place:
 
 ```
 Allow group MyGroup to manage dynamic-groups in tenancy
 Allow group MyGroup to manage policies in tenancy
 Allow group MyGroup to use tag-namespaces in tenancy
+Allow group MyGroup to inspect tenancies in tenancy
+```
+
+Also, to be able to use the Cloud Shell you need also:
+
+```
+Allow group MyGroup to use cloud-shell in tenancy
 ```
 
 
@@ -67,6 +74,27 @@ Allow group MyGroup to manage keys in compartment MyCompartment
 Allow group MyGroup to manage secret-family in compartment MyCompartment
 Allow group MyGroup to read metrics in compartment MyCompartment
 ```
+
+
+
+### 1.3 Service limits
+
+Going through the hands on lab you will create the following main components in your tenancy:
+
+- two Compute instances
+- one Virtual Cloud Network (VCN)
+- one Load Balancer
+- one Vault
+- reserve two Public IPs
+
+Check your tenancy Service limits, current usage (*Governance and Administration* > *Governance* > *Limits, Quotas and Usage*) and make sure you have enough room for: 
+
+- Compute Service: VM.Standard2.1 (you may consider choosing a specific AD)
+- Virtual Cloud Network Service: Virtual Cloud Networks
+- Virtual Cloud Network Service: Reserved Public IP
+- LbaaS Service: 100Mbps Load Balancer
+
+If you don't have visibility and/or you don't have admin rights for your tenancy, reach out to your administrator.
 
 
 

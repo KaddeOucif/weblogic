@@ -69,7 +69,7 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
 - Start to fill in details:
 
-  - **Resource Name Prefix**: *WLSCNN* - where **NN** your unique suffix
+  - **Resource Name Prefix**: *WLSNN* - where **NN** your unique suffix
   - **WebLogic Server Shape**: *VM.Standard2.1*
   - **SSH Public Key**: copy and paste the content from the provided **weblogic_ssh_key.pub** file; it contains the public key in RSA format; be sure to include the whole content in one line, including *ssh-rsa* part at the beginning
 
@@ -142,7 +142,7 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
 
 
-- A Stack Job is being run and our WebLogic Server is being provisioned:
+- A Stack Job is being kicked off and our WebLogic Domain starts to be provisioned. Console context moves to Stack's details page (*Solutions and Platform* > *Resource Manager* > *Stacks*):
 
 ![](images/wlscnonjrfwithenv/image180.png)
 
@@ -382,3 +382,29 @@ Follow **Upload your files** link and upload provided [SampleWebApp.war](resourc
 
 
 - This is just another sample application, but you can deploy any other application; Congratulations!
+
+
+
+## Step 4. Destroy resources
+
+If you don't plan to use the WebLogic Domain anymore, to spare tenancy resources, the quickest way to delete the resources created during this lab is to run *Terraform Destroy*  on the Stack.
+
+Navigate to *Solutions and Platform* > *Resource Manager* > *Stacks*, identify and click on the Stack name you have created at the beginning of this lab.
+
+By running the *Destroy* action, a Terraform job will kick off and delete all created resources.
+
+![](images/\wlscnonjrfwithenv/image600.png)
+
+
+
+When the job ends, you should see a similar log output:
+
+![](images/wlscnonjrfwithenv/image610.png)
+
+
+
+You can check that the Compute Instances and the Block Volumes have been terminated.
+
+At the end you can also delete the Stack:
+
+![image-20200620183946594](images/wlscnonjrfwithenv/image620.png)

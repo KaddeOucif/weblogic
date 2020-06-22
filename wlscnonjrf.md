@@ -59,7 +59,7 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
 
 - Fill in Stack information:
-  - **Name**: *WLSCNN* - where **NN** is your unique suffix given by the instructor
+  - **Name**: *WLSNN* - where **NN** is your unique suffix given by the instructor
   - **Description**: Any meaningful description, maybe type in your name/initials
 - Click **Next**
 
@@ -217,7 +217,7 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
 
 
-- Identify the Load Balancer that has your unique WLSC*NN* prefix:
+- Identify the Load Balancer that has your unique *WLSNN* prefix:
 
 ![](images/wlscnonjrfwithenv/image270.png)
 
@@ -420,7 +420,7 @@ Navigate to *Solutions and Platform* > *Resource Manager* > *Stacks*, identify a
 
 By running the *Destroy* action, a Terraform job will kick off and delete all created resources.
 
-![](images/\wlscnonjrfwithenv/image600.png)
+![](images/wlscnonjrfwithenv/image600.png)
 
 
 
@@ -434,4 +434,4 @@ You can check that the Compute Instances and the Block Volumes have been termina
 
 At the end you can also delete the Stack:
 
-![image-20200620183946594](images/wlscnonjrfwithenv/image620.png)
+![](images/wlscnonjrfwithenv/image620.png)

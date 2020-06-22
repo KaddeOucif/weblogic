@@ -78,6 +78,17 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
 
 
 
+---
+
+- Note: if you are using your own environment and you have used the Cloud Shell to generate the weblogic ssh key, you can use the `cat` command to display its contents:
+
+![](images/wlscnonjrfwithenv/image105.png)
+
+- Use `Ctrl+INSERT` to copy the highlighted aria as in the above example.
+
+---
+
+
 - Continue setting up:
 
   - **WebLogic Server Availability Domain**: choose one of the three ADs
@@ -95,7 +106,7 @@ This Hands on Lab will go through the process of creating a non JRF type of WebL
     - if you are using your own environment and you have followed the *Prerequisites* lab, fill in the OCI Secret OCID that you have created at step *Create OCI Secret for WebLogic Admin password* > *Create OCI Secret*
 
 
-![image-20200526141855489](images/wlscnonjrfwithenv/image110.png)
+![](images/wlscnonjrfwithenv/image110.png)
 
 
 
@@ -250,6 +261,22 @@ Now, choose *Certificates* from *Resources* sub menu:
   - Tick **Specify CA Certificate**:
 
 ![](images/wlscnonjrfwithenv/image330.png)
+
+
+
+---
+
+- Note: if you are running this on your own environment and you have used the Cloud Shell to generate the weblogic_cert.pem file, you can use the `cat` command to display its contents:
+
+![](images/wlscnonjrfwithenv/image333.png)
+
+
+
+- Select the output and use `Ctrl+INSERT` to copy.  Use the *Paste SSL Certificate* option instead of file upload:
+
+![](images/wlscnonjrfwithenv/image335.png)
+
+---
 
 
 

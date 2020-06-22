@@ -214,7 +214,11 @@ You can choose one of the options below:
 
 > ssh-keygen -t rsa -b 4096 -f weblogic_ssh_key
 
-This will create the **weblogic_ssh_key** containing the private key. The public key will be saved at the same location, with the .pub extension added to the private key filename.
+This will create the **weblogic_ssh_key** containing the private key. The public key will be saved at the same location, with the .pub extension added to the private key filename (**weblogic_ssh_key.pub**).
+
+If you don't have `ssh-keygen` installed, you can use the Cloud Shell:
+
+![](images/wlscnonjrfwithenvprereq/image520.png)
 
 
 
@@ -244,17 +248,23 @@ For security reasons it's a good practice - if not mandatory - to allow only sec
 
 ### Create Self Signed certificate
 
-We can use Openssl tool to generate a Self Signed certificate:
+We can use Openssl tool (and Cloud Shell!) to generate a Self Signed certificate:
 
 > openssl req -x509 -newkey rsa:4096 -keyout weblogic_cert_key.pem -out weblogic_cert.pem -days 365
 
+![](images/wlscnonjrfwithenvprereq/image530.png)
+
+
+
 The openssl dialog will request setting up a PEM pass phrase and several fields for certificate information. You may setup **weblogic** as the value for *Common Name (e.g. server FQDN or YOUR name)* field.
 
-You can choose any PEM pass phrase, the one used by the Hands on Lab is referred from the **weblogic_cert_key_passphrase.txt** text file.
+You may setup any pass phrase, don't forget it. In the Hands on Lab it's mentioned to be provided in the **weblogic_cert_key_passphrase.txt** text file.
+
+![](images/wlscnonjrfwithenvprereq/image540.png)
 
 
 
-Then, we need to decrypt the private key:
+Next, we need to decrypt the private key:
 
 > openssl rsa -in weblogic_cert_key.pem -out weblogic_cert_key_dec.pem
 
